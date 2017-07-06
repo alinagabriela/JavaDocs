@@ -55,7 +55,6 @@ public class Exercise4Test {
 
     @Test
     public void testRemoveMethodOverStringList() {
-        System.out.println("ooook");
         try {
             testingStringValues.remove(1);
         } catch (MyException e) {
@@ -134,12 +133,12 @@ public class Exercise4Test {
         Assert.assertTrue(testingIntegerValues.size() == 32);
     }
 
-    @Test
+    /*@Test
     public void testForeachMethodsOverStringList() {
         for (Object obj : testingStringValues) {
             System.out.println(obj);
         }
-    }
+    }*/
 
     @Test
     public void testSortMethodOverStringList() {

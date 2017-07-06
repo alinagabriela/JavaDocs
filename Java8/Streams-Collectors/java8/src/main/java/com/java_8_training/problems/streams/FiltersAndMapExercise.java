@@ -16,10 +16,9 @@ public class FiltersAndMapExercise {
 
         List<Integer> evenNumbers = new ArrayList<>();
         //TODO #1 find only the even numbers
-
+        evenNumbers = input.filter(evenNumber -> evenNumber % 2 == 0).collect(toList());
 
         return evenNumbers;
-
     }
 
     public static List<String> findPersonByName(String name){
@@ -27,6 +26,7 @@ public class FiltersAndMapExercise {
 
         List<String> personName = new ArrayList<>();
         //TODO #2 find element by given name
+        personName = input.filter(person -> person.equals("Jack")).collect(toList());
 
         return personName;
     }
@@ -37,6 +37,7 @@ public class FiltersAndMapExercise {
 
         List<Integer> evenNumbers = new ArrayList<>();
         //TODO #3 find all elements that are not null;
+        evenNumbers = input.filter(elem -> elem != null).collect(toList());
 
         return evenNumbers;
     }
@@ -44,6 +45,7 @@ public class FiltersAndMapExercise {
     public static List<Person> findPersonByAgeAndName(List<Person> personList, String name, Integer age){
         List<Person> persons = new ArrayList<>();
         //TODO #4 find person by given name and age
+        persons = personList.stream().filter(person -> person.getName().equals(name) && person.getAge() == age).collect(toList());
 
         return persons;
     }
@@ -53,6 +55,7 @@ public class FiltersAndMapExercise {
         //TODO #5
         // HINT: use map
         List<Integer> doubleNumbers = new ArrayList<>();
+        doubleNumbers = input.map(number -> number * 2).collect(toList());
 
         return doubleNumbers;
     }
@@ -61,16 +64,22 @@ public class FiltersAndMapExercise {
         List<String> collect = new ArrayList<>();
         //TODO #6
         // HINT: use map
+        collect = personList.stream().map(person -> person.getName()).collect(toList());
 
         return  collect;
     }
 
     public static List<Integer> flatteningLists() {
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+
         Stream<List<Integer>> input = Stream.of(asList(1, 2), asList(3, 4));
         List<Integer> together = new ArrayList<>();
 
         //TODO #7  flatten the lists into one list
-
+        together = input.flatMap(listI -> listI.stream()).collect(toList());
 
         return together;
     }

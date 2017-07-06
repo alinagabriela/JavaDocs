@@ -1,8 +1,5 @@
 package exercise.exercise4;
 
-import javax.jws.Oneway;
-import java.awt.event.ItemListener;
-import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -26,7 +23,7 @@ import java.util.Iterator;
  * @author Cristian.Dumitru
  * @since 7/3/2017.
  */
-public class MyImplementedList<E> implements Iterable<E> {
+public class MyImplementedList<E> {
 
     /**
      * The maximum accepted load property of the data structure.
@@ -83,7 +80,6 @@ public class MyImplementedList<E> implements Iterable<E> {
         }
         return true;
     }
-
     //TODO d) create the boolean isEmpty() method that checks if the data structure have elements
     public boolean isEmpty() {
         if (this.size == 0)
@@ -91,7 +87,6 @@ public class MyImplementedList<E> implements Iterable<E> {
         else
             return false;
     }
-
     //TODO e) create the boolean contains(Object o_O) method that checks if the data structure contains the object o_O
     public boolean contains(Object o) {
         for (Object obj: elementData) {
@@ -156,7 +151,6 @@ public class MyImplementedList<E> implements Iterable<E> {
 
         return prevElem;
     }
-
 
     //TODO j) create the E remove(int index) method that removes the element from the given index
     public E remove(int index) throws MyException {
@@ -227,7 +221,7 @@ public class MyImplementedList<E> implements Iterable<E> {
     //TODO m) implement a method, that uses a Comparator, for your data structure to sort the elements
     //TODO you should name it: void sort(Comparator<? super E> c)
     //TODO create a custom comparator that compares objects by their "what you want" :D - HINT Comparator interface
-   /* public boolean comparator() {
+    /* public boolean comparator() {
         Comparator<E> comp = new Comparator<E>() {
             public int compare(E o1, E o2) {
                 if(o1 > o2)

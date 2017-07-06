@@ -49,12 +49,11 @@ public class MyList<Integer> extends ArrayList<Integer> {
 
     // TODO Exercise #2 a) Override add() and addAll() methods so that the list should retain the number of
     // TODO Exercise #2 a) different elements (Hint: check out the methods signatures on the List documentation)
-
     @Override
     public boolean add(Integer integer) {
         if(!(super.subList(0, super.size())).contains(integer))
             differentElements++;
-       // myList.add(integer);
+        // myList.add(integer);
         return super.add(integer);
     }
 
@@ -62,7 +61,7 @@ public class MyList<Integer> extends ArrayList<Integer> {
     public void add(int index, Integer element) {
         if(!(super.subList(0, super.size())).contains(element))
             differentElements++;
-       // myList.add(index, element);
+        // myList.add(index, element);
         super.add(index, element);
     }
 
@@ -71,13 +70,13 @@ public class MyList<Integer> extends ArrayList<Integer> {
         for(Integer i : c)
             if(!(super.subList(0, super.size())).contains(i))
                 differentElements++;
-       // myList.addAll(c);
+        // myList.addAll(c);
         return super.addAll(c);
     }
 
     @Override
     public boolean addAll(int index, Collection c) {
-      boolean result =  super.addAll(index, c);
+        boolean result = super.addAll(index, c);
 
         ListIterator<Integer> li = this.listIterator();
         List<Integer> newList = new ArrayList<Integer>();
@@ -95,11 +94,10 @@ public class MyList<Integer> extends ArrayList<Integer> {
         return result;
     }
 
-// TODO Exercise #2 b) Override the remove methods so that the number of different elements is updated when
+    // TODO Exercise #2 b) Override the remove methods so that the number of different elements is updated when
     // TODO Exercise #2 b) an element is removed
     // TODO Exercise #2 b) hint: you need to update the number of different elements only when
     // TODO Exercise #2 b) the element that needs to be removed is the last element of its kind in the list
-
     @Override
     public Integer remove(int index) {
 
@@ -127,12 +125,12 @@ public class MyList<Integer> extends ArrayList<Integer> {
     }
 
     // TODO Exercise #2 c) Override the clear method and reset the number of different elements
-
     @Override
     public void clear() {
         super.clear();
         differentElements = 0;
     }
+
 
     // TODO Exercise #2 d) Return the number of different elements that exist into the list
     public int getDifferentElements() {

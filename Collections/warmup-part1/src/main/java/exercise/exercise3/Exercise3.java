@@ -32,14 +32,13 @@ public class Exercise3 {
 
     public void addElementsToSets(){
 
-        System.out.print("The elements that will be added to the Sets: ");
+        System.out.println("The elements that will be added to the Sets: ");
         // TODO Exercise #3 a) Check the content of the elements you will add into the Set
         for (String string : listToAdd) {
             System.out.print(string + " ");
         }
 
         // TODO Exercise #3 b) add the elements from listToAdd to the Sets
-
         hashSet.addAll(listToAdd);
         treeSet.addAll(listToAdd);
         linkedHashSet.addAll(listToAdd);
