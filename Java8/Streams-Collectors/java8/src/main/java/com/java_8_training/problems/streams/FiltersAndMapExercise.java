@@ -90,6 +90,7 @@ public class FiltersAndMapExercise {
 
         int product = 1;
         //TODO #8
+        product = input.reduce(product, (acc, x) ->acc * x);
 
         return product;
     }
@@ -99,7 +100,7 @@ public class FiltersAndMapExercise {
 
         Optional<Person> personOptional = Optional.empty();
         //TODO #9
-
+        personOptional = personList.stream().filter(person -> person.isMale()).findFirst();
         return personOptional;
     }
 
@@ -107,6 +108,7 @@ public class FiltersAndMapExercise {
 
         boolean overAge = false;
         //TODO #10 use allMAtch
+        overAge = personList.stream().allMatch(person -> person.getAge() < age);
 
         return overAge;
     }
@@ -117,6 +119,7 @@ public class FiltersAndMapExercise {
         //TODO #11
         // HINT: use reduce
         int min =0;
+        min = input.reduce(Integer.MAX_VALUE, (acc, x) -> Integer.min(acc, x));
 
         return min;
     }
@@ -126,6 +129,7 @@ public class FiltersAndMapExercise {
         //TODO #12
         // HINT: use map and reduce
         int min = 0;
+        min = personList.stream().map(person -> person.getAge()).reduce(Integer.MAX_VALUE, (acc, x) -> Integer.min(acc, x));
 
         return min;
     }
@@ -133,6 +137,7 @@ public class FiltersAndMapExercise {
     public static double findAgeAverage(List<Person> personList){
         double sum = 0;
         //TODO #13
+        sum = personList.stream().map(person -> person.getAge()).reduce(0, (acc, x) -> acc + x);
 
         return  sum/personList.size();
     }
@@ -143,7 +148,7 @@ public class FiltersAndMapExercise {
 
         //TODO #14
         // HINT use startsWith() for finding the names that starts with J, and distinct() to remove duplicates
-
+        persons = personList.stream().filter(person -> person.getName().startsWith("J")).map(person -> person.getNationality()).collect(toList());
 
         return  persons;
     }
@@ -151,10 +156,12 @@ public class FiltersAndMapExercise {
 
     public static Optional<Integer> findSquareDivisibleBy3(){
 
-        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 10, 81);
 
         //TODO #15
         Optional<Integer> firstSquareDivisibleByThree = Optional.empty();
+        firstSquareDivisibleByThree = someNumbers.stream().
+                filter(number -> ((Math.sqrt(number) * Math.sqrt(number) == number) && (number % 3 == 0))).findFirst();
 
         return firstSquareDivisibleByThree;
     }
@@ -163,13 +170,14 @@ public class FiltersAndMapExercise {
         List<String> strings = Arrays.asList("Hello","everyone","Java8", "is" , "here");
         int sum = 0;
         //TODO #16
-
+        sum = strings.stream().map(word -> word.length()).reduce(0, (acc, x) -> acc + x);
         return sum;
     }
 
     public static  int sumSalary(List<Person> personList){
         int sum =0;
         //TODO #17
+        sum = personList.stream().map(person -> person.getSalary()).reduce(0, (acc, x) -> acc + x);
 
         return sum;
     }

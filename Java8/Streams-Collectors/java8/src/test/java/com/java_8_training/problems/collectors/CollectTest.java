@@ -25,6 +25,7 @@ public class CollectTest {
         List<Integer> noDuplicates = new ArrayList<>();
         //TODO #C3
 
+
         assertThat(noDuplicates, is(Arrays.asList(2, 4, 1, 9)));
     }
 

@@ -10,6 +10,7 @@ import java.util.Map;
 import static com.java_8_training.problems.collectors.Dish.CaloricLevel;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.partitioningBy;
 import static junit.framework.Assert.assertEquals;
 
 @Ignore
@@ -23,6 +24,7 @@ public class PartitioningAndGroupingTest {
         Map<Boolean, List<Dish>> partitionedDishes = new HashMap<>();
 
         //TODO #C1
+        partitionedDishes = Dish.menu.stream().collect(partitioningBy(dish -> dish.getCalories() > 380));
 
         assertEquals(2, partitionedDishes.get(false).size());
         assertEquals(7, partitionedDishes.get(true).size());
@@ -34,12 +36,15 @@ public class PartitioningAndGroupingTest {
         Map<CaloricLevel, List<Dish>> groupedDishes = new HashMap<>();
 
         //TODO #C2
+        groupedDishes = Dish.menu.stream().collect(groupingBy(Dish::getCaloricLevel));
 //
         assertEquals(4, groupedDishes.get(CaloricLevel.DIET).size());
         assertEquals(4, groupedDishes.get(CaloricLevel.NORMAL).size());
         assertEquals(1, groupedDishes.get(CaloricLevel.FAT).size());
     }
 
+
+    //TreeSet::new apeleaza un contructor
     @Test
     public void groupCounting(){
         Map<Dish.Type, Long> groupedDishes = new HashMap<>();

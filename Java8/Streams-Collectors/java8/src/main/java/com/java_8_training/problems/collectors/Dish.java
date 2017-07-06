@@ -3,6 +3,10 @@ package com.java_8_training.problems.collectors;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.java_8_training.problems.collectors.Dish.CaloricLevel.DIET;
+import static com.java_8_training.problems.collectors.Dish.CaloricLevel.FAT;
+import static com.java_8_training.problems.collectors.Dish.CaloricLevel.NORMAL;
+
 public class Dish {
 
     private  String name;
@@ -37,6 +41,14 @@ public class Dish {
 
     public enum Type { MEAT, FISH, OTHER }
     public enum CaloricLevel { DIET, NORMAL, FAT }
+
+    public CaloricLevel getCaloricLevel() {
+        if (this.calories > 0 && this.calories <= 400)
+            return DIET;
+        else if(this.calories > 400 && this.calories <= 700)
+            return NORMAL;
+        else return FAT;
+    }
 
     @Override
     public String toString() {

@@ -25,7 +25,7 @@ public class ArithmeticAndReducingCollectorsTest {
 
     @Test
     public void statisticsForVegetarianDishes() {
-        //TODO #C5
+        //TODO #C6
         IntSummaryStatistics vegetarianStats = new IntSummaryStatistics();
 
         assertEquals(4, vegetarianStats.getCount());
