@@ -17,22 +17,66 @@ public class MyHashMap {
 
     private final int BUCKET_ARRAY_SIZE = 16;
 
+    private int size;
+
     public MyHashMap() {
 
         // TODO Initialize buckets list
+        buckets = new ArrayList<LinkedList<MyEntry>>(BUCKET_ARRAY_SIZE);
+        for (int i = 0; i < BUCKET_ARRAY_SIZE; i++) {
+            buckets.add(i, new LinkedList<MyEntry>());
+        }
+        this.size = 0;
     }
 
     public String get(String key) {
         // TODO
+        LinkedList<MyEntry> bucket = buckets.get(Math.abs(key.hashCode() % BUCKET_ARRAY_SIZE));
+        if (key == null)
+            return null;
+
+        for (MyEntry myEntry : bucket) {
+            if (myEntry.getKey().equals(key)) {
+                return myEntry.getValue();
+            }
+        }
+
         return null;
     }
 
     public void put(String key, String value) {
         // TODO
+        int index = Math.abs(key.hashCode() % BUCKET_ARRAY_SIZE);
+        System.out.println("index: " + index);
+        Iterator<MyEntry> it = buckets.get(index).iterator();
+        int ok = 0;
+        while (it.hasNext()) {
+            MyEntry myEntry = it.next();
+            if (myEntry.getKey().equals(key)) {
+                myEntry.setValue(value);
+                ok = 1;
+            }
+        }
+        if (ok == 0) {
+            buckets.get(index).add(new MyEntry(key, value));
+            this.size++;
+        }
     }
 
     public Set<String> keySet() {
         // TODO
+        Set<String> keySet = new HashSet<String>();
+        for (int i = 0; i < BUCKET_ARRAY_SIZE; i++) {
+            Iterator<MyEntry> it = buckets.get(i).iterator();
+            while (it.hasNext()) {
+                MyEntry myEntry = it.next();
+                keySet.add(myEntry.getKey());
+            }
+        }
+            /*if(buckets.get(i) != null) {
+                keySet.add(buckets.);
+            }*/
+
         return null;
     }
 
@@ -58,7 +102,7 @@ public class MyHashMap {
 
     public int size() {
         // TODO Return the number of the Entry objects stored in all the buckets
-        return 0;
+        return this.size;
     }
 
     public void clear() {

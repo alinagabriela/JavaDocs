@@ -152,6 +152,10 @@ public class Exercise1Test {
     public void testIteratingOverEntries() throws Exception {
         List<String> testResults = exercise1.iteratingOverEntries();
 
+        for (String testResult : testResults) {
+            System.out.print(testResult + " ");
+        }
+
         Assert.assertEquals("Test Iterating Over Entries", expectedCorrectCountriesForSecondTest,
                 getCorrectCountries(testResults, expectedResultsForSecondTest));
     }
