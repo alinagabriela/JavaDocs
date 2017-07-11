@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.timnet.MyUnitTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 2, Errors: 0, Skipped: 2, Time elapsed: 0.001 sec <<< FAILURE!
+Tests run: 11, Failures: 2, Errors: 0, Skipped: 2, Time elapsed: 0 sec <<< FAILURE!
 testGetTheObject(com.timnet.MyUnitTest)  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.AssertionError: expected null, but was:<java.lang.Object@60215eee>
+java.lang.AssertionError: expected null, but was:<java.lang.Object@b065c63>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotNull(Assert.java:755)
 	at org.junit.Assert.assertNull(Assert.java:737)
