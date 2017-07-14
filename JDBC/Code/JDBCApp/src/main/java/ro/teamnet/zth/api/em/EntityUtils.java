@@ -65,8 +65,8 @@ public class EntityUtils {
             if (declaredField.getAnnotation(annotation) != null) {
                 fields.add(declaredField);
             }
-        }return fields;
-
+        }
+        return fields;
     }
 
     public static Object getSqlValue(Object object) throws IllegalAccessException {

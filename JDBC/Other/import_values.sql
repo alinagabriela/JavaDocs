@@ -1787,15 +1787,3 @@ INSERT INTO employees VALUES
     , 205
     , 110
   );
-  
---  drop table departments;
---  drop table jobs;
---  drop table employees;
---  drop table locations;
---  
---  select * from departments;
---  select * from jobs;
---  select * from employees;
---  select * from locations;
-
-select max(department_id) from departments;
